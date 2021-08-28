@@ -1,0 +1,42 @@
+// Colors
+$primary: #7572ff;
+$lightPrimary: #f6f7fb;
+$background: #fff;
+$dark: #282338;
+$dark-light: #3f3a50;
+
+$text-dark: #000;
+$text-lighter: #55595d;
+$text-light: #a2a9af;
+
+// Font Family
+$font-family-base: "Montserrat", sans-serif;
+$headings-font-family: "Overpass", sans-serif;
+
+// Font Sizes
+/*
+    -the number of found results (cars) 18px -- on desktop and tablet
+    -badges which functions as a button 18px -- dekstop/tablet
+
+    // Card Card
+        -conditon bade 16px as the normal badge above - 14px small (2px diff)
+        -small badge 12px -- on small they dissapear just text same fontsize
+        -title of the card 16px base font size ---- small 14px 2PX DIFF
+        -text description of the car card 12px
+        -price of the car 18px bold
+        -view the product(car) button 18px
+
+    // Joker card value your car card
+        -title 24px
+        -subtitle 16px
+        -text 16px
+        -label 12px
+        -button 16px
+*/
+// card for mobile that showcases single cars
+// image slideshow
+//description header
+//
+// Then import Bootstrap an BootstrapVue SCSS files (order is important)
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap-vue/src/index.scss";
