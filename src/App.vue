@@ -1,22 +1,27 @@
 <template>
   <div id="app">
-    <!-- header component here -->
     <Header />
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <main>
+      <Controls />
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Controls from "./components/Controls.vue";
 
 export default {
   name: "App",
-  components: { Header },
+  components: { Header, Controls },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "./styles/_app.scss";
+
+body {
+  color: $text-dark !important;
+}
+</style>

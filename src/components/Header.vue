@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1 class="logo">CarDealer<sup class="text-primary">UK</sup></h1>
+    <h1 class="logo">CarDealer<sup>UK</sup></h1>
   </header>
 </template>
 
@@ -18,6 +18,7 @@
 
     sup {
       font-size: 0.9rem;
+      color: $accent;
     }
   }
 }
