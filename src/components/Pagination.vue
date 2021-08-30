@@ -16,7 +16,7 @@
 @import "../styles/_app.scss";
 
 .pagination-wrap {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .pagination {
   display: flex;

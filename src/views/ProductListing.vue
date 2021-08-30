@@ -10,6 +10,9 @@
         ></b-icon>
       </Button>
       <Pagination />
+      <TextBox>
+        <RepExample />
+      </TextBox>
     </b-container>
   </div>
 </template>
@@ -19,6 +22,8 @@
 import MobileCarCard from "../components/MobileCarCard.vue";
 import Button from "@/components/Button.vue";
 import Pagination from "@/components/Pagination.vue";
+import TextBox from "@/components/TextBox.vue";
+import RepExample from "@/components/RepExample.vue";
 import json from "../data/vehicle-search.json";
 
 export default {
@@ -27,6 +32,8 @@ export default {
     MobileCarCard,
     Button,
     Pagination,
+    TextBox,
+    RepExample,
   },
   data() {
     return {
