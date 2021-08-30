@@ -2,6 +2,13 @@
   <div class="home">
     <b-container>
       <MobileCarCard v-for="car in cars" :key="car.stock_id" :car="car" />
+      <Button text="Filter">
+        <b-icon
+          icon="filter"
+          aria-hidden="true"
+          style="margin-right: 3px"
+        ></b-icon>
+      </Button>
     </b-container>
   </div>
 </template>
@@ -9,12 +16,14 @@
 <script>
 // @ is an alias to /src
 import MobileCarCard from "../components/MobileCarCard.vue";
+import Button from "@/components/Button.vue";
 import json from "../data/vehicle-search.json";
 
 export default {
   name: "ProductListing",
   components: {
     MobileCarCard,
+    Button,
   },
   data() {
     return {
