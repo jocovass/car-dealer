@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
+  <div class="productlist">
     <b-container>
-      <MobileCarCard v-for="car in cars" :key="car.stock_id" :car="car" />
+      <div class="d-block d-md-flex flex-wrap justify-content-between">
+        <MobileCarCard v-for="car in cars" :key="car.stock_id" :car="car" />
+      </div>
       <Button text="Filter">
         <b-icon
           icon="filter"
@@ -48,12 +50,3 @@ export default {
   },
 };
 </script>
-<!--
-  body_type, colour, feature_classification[0], make, model, odometer_value, original_price, price, model_year, monthly_payment, stock_id, transmission, year, advert_classification
-
-  year, make model   advert_classification, star
-  name
-
-  odometer_value transmission fuel_type body_type    monthly_payment
-                                                      original_price price
- -->

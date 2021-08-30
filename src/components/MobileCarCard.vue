@@ -1,23 +1,29 @@
 <template>
   <div class="card" style="border: none">
-    <div class="card__img-slide">
+    <div class="card__img-slide d-block d-md-none">
       <carousel :perPage="3" :paginationEnabled="false">
         <slide class="slide" v-for="index in 5" :key="index">
-          <img :src="getImages" alt="Mercedes" />
+          <img :src="getImages" :alt="car.name" />
         </slide>
-        <!-- <slide class="slide">
-          <img src="../assets/images/mercedes.jpg" alt="Mercedes" />
-        </slide>
-        <slide class="slide">
-          <img src="../assets/images/mercedes.jpg" alt="Mercedes" />
-        </slide>
-        <slide class="slide">
-          <img src="../assets/images/mercedes.jpg" alt="Mercedes" />
-        </slide>
-        <slide class="slide">
-          <img src="../assets/images/mercedes.jpg" alt="Mercedes" />
-        </slide> -->
       </carousel>
+    </div>
+    <div class="card__thumbnail d-none d-md-block">
+      <img class="card__thumbnail-img" :src="getImages" :alt="car.name" />
+      <div class="card__thumbnail-overlay">
+        <div>
+          <b-badge class="condition-badge condition-badge--big">{{
+            car.advert_classification
+          }}</b-badge>
+        </div>
+        <div>
+          <b-badge class="condition-badge"
+            >{{ formatMiles }} {{ car.odometer_units }}</b-badge
+          >
+          <b-badge class="condition-badge">{{ car.transmission }}</b-badge>
+          <b-badge class="condition-badge">{{ car.fuel_type }}</b-badge>
+          <b-badge class="condition-badge">{{ car.body_type }}</b-badge>
+        </div>
+      </div>
     </div>
     <div class="card__details">
       <header class="card__header">
@@ -32,11 +38,12 @@
               <p class="card__subtitle">{{ car.name }}</p>
             </div>
           </b-col>
-          <b-col class="d-flex align-items-center">
+          <b-col class="d-flex align-items-center justify-content-md-end">
             <div class="card__tags">
-              <b-badge class="font-weight-normal condition-badge mr-3">{{
-                car.advert_classification
-              }}</b-badge>
+              <b-badge
+                class="condition-badge condition-badge--big d-block d-md-none"
+                >{{ car.advert_classification }}</b-badge
+              >
               <b-icon icon="star" aria-hidden="true" :font-scale="1.3"></b-icon>
             </div>
           </b-col>
@@ -45,7 +52,7 @@
 
       <div class="card__body">
         <b-row>
-          <b-col>
+          <b-col class="d-block d-md-none">
             <div class="card__specs">
               <span class="card__spec"
                 >{{ formatMiles }} {{ car.odometer_units }}</span
@@ -65,9 +72,10 @@
                   <span>{{ car.monthly_payment }}</span> /mo (PCP)
                 </p>
               </div>
-              <div class="card__pricing--full d-flex">
+              <div class="card__pricing--full d-flex align-items-center">
                 <p class="card__pricing--new mr-2">${{ car.original_price }}</p>
-                <p class="card__pricing--old">${{ car.price }}</p>
+                <p class="card__pricing--old mr-md-2">${{ car.price }}</p>
+                <p class="valuate__btn d-none d-md-block">Calculate finance</p>
               </div>
             </div>
           </b-col>
@@ -136,6 +144,24 @@ export default {
 
 .card {
   margin-bottom: 3rem;
+  &__thumbnail {
+    position: relative;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
   &__title {
     font-size: 0.9rem;
     font-family: $font-family-base;
@@ -144,7 +170,7 @@ export default {
   }
 
   &__subtitle {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: $text-lighter;
   }
 
@@ -152,6 +178,14 @@ export default {
     background-color: $dark-light;
     padding: 0.5em 0.8em;
     border-radius: 8px;
+    font-weight: normal;
+    font-size: 0.75rem;
+    font-weight: 300;
+    margin-right: 0.2rem;
+
+    &--big {
+      font-weight: 400;
+    }
   }
 
   &__spec,
@@ -191,6 +225,47 @@ export default {
       color: $text-lighter;
       text-decoration: line-through;
     }
+
+    .valuate__btn {
+      font-weight: 300;
+      color: $accent;
+    }
   }
 }
+
+@include media-breakpoint-up(md) {
+  .card {
+    width: 48%;
+    border-radius: 20px;
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
+
+    .condition-badge--big {
+      font-size: 1rem;
+    }
+
+    &__details {
+      padding: 1.2rem 1rem;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__pricing {
+      &--monthly {
+        p {
+          margin-bottom: 3px;
+        }
+        span {
+          font-size: 1.12rem;
+        }
+      }
+
+      &--new,
+      &--old {
+        font-size: 0.9rem;
+      }
+    }
+  }
+} ;
 </style>

@@ -40,6 +40,9 @@ export default {
 <style lang="scss" scoped>
 @import "@/styles/_app.scss";
 .repspecs {
+  &__outer {
+    margin-top: 1.3rem;
+  }
   &__toggles {
     display: flex;
     margin-bottom: 1.2rem;
@@ -62,6 +65,9 @@ export default {
 
       &:hover {
         background-color: rgba($text-light, 0.2) !important;
+        border-color: transparent !important;
+        border-bottom-color: $accent !important;
+        color: $text-dark !important;
       }
     }
   }
@@ -96,6 +102,14 @@ export default {
     font-weight: 500;
     margin-bottom: 0;
     font-size: 0.9rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .repspecs {
+    &__item {
+      width: 31%;
+    }
   }
 }
 </style>
