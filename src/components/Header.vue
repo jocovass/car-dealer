@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" id="top">
     <h1 class="logo">CarDealer<sup>UK</sup></h1>
   </header>
 </template>

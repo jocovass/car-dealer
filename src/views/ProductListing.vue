@@ -9,6 +9,7 @@
           style="margin-right: 3px"
         ></b-icon>
       </Button>
+      <Pagination />
     </b-container>
   </div>
 </template>
@@ -17,6 +18,7 @@
 // @ is an alias to /src
 import MobileCarCard from "../components/MobileCarCard.vue";
 import Button from "@/components/Button.vue";
+import Pagination from "@/components/Pagination.vue";
 import json from "../data/vehicle-search.json";
 
 export default {
@@ -24,6 +26,7 @@ export default {
   components: {
     MobileCarCard,
     Button,
+    Pagination,
   },
   data() {
     return {
