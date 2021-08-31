@@ -1,6 +1,6 @@
 <template>
   <div class="rep-outer">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column flex-lg-row align-items-lg-start">
       <p class="rep-example-text">
         <b>Representative example: </b>Borrowing $11,790.00 over 4 years with a
         representative APR of 7.9%, an annual interest rate of 4.08% (Fixed) and
@@ -40,6 +40,7 @@ export default {
 .rep-example-text {
   font-weight: 300;
   font-size: 0.875rem;
+  margin-right: 10px;
 }
 .toggle {
   background-color: $background !important;
@@ -51,13 +52,16 @@ export default {
   border-color: $background !important;
   border-radius: 10px;
   color: $text-lighter;
+  white-space: nowrap;
 
   span {
     background-color: $text-light;
     color: $background;
     line-height: normal;
-    padding: 0.2em 0.5em;
-    border-radius: 10px;
+    padding: 0.05em 0.5em;
+    border-radius: 7px;
+    margin-left: 10px;
+    display: inline-block;
   }
 }
 </style>

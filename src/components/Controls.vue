@@ -6,6 +6,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import "@/styles/_app.scss";
+
 .controls {
   text-align: center;
 
@@ -16,6 +18,14 @@
 
   &__toggle {
     padding-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .controls {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
   }
 }
 </style>

@@ -2,9 +2,13 @@
   <div class="repspecs__outer">
     <div class="repspecs__toggles">
       <b-button title="Personal Contract Purchase" class="active">
-        PCP
+        <span class="d-inline d-md-none">PCP </span>
+        <span class="d-none d-md-inline">Personal Contract Purchase</span>
       </b-button>
-      <b-button title="Hire Purchase"> HP </b-button>
+      <b-button title="Hire Purchase">
+        <span class="d-inline d-md-none">HP </span>
+        <span class="d-none d-md-inline">Hire Purchase</span>
+      </b-button>
     </div>
     <div class="repspecs__list">
       <div class="repspecs__item" v-for="spec in specs" :key="spec.label">
@@ -109,6 +113,14 @@ export default {
   .repspecs {
     &__item {
       width: 31%;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .repspecs {
+    &__item {
+      width: 19%;
     }
   }
 }

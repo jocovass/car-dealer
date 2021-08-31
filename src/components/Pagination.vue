@@ -22,6 +22,9 @@
 
 .pagination-wrap {
   margin-bottom: 2rem;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .pagination {
   display: flex;
@@ -68,6 +71,12 @@
 @include media-breakpoint-up(md) {
   .pagination {
     margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .sort {
+    padding: 0.8rem 0.4rem;
   }
 }
 </style>

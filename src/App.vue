@@ -2,7 +2,6 @@
   <div id="app">
     <Header />
     <main class="mb-5">
-      <Controls />
       <router-view />
     </main>
     <Footer />
@@ -11,12 +10,11 @@
 
 <script>
 import Header from "./components/Header.vue";
-import Controls from "./components/Controls.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
-  components: { Header, Controls, Footer },
+  components: { Header, Footer },
 };
 </script>
 

@@ -18,10 +18,6 @@ export default {
 @import "@/styles/_app.scss";
 
 .button {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   border-radius: 10px;
   background-color: $accent;
   font-family: $headings-font-family;
