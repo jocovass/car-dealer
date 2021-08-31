@@ -1,14 +1,14 @@
 <template>
   <div class="card--outer">
     <div class="card" style="border: none">
-      <div class="card__img-slide d-block d-md-none">
+      <div v-if="isMobile" class="card__img-slide">
         <carousel :perPage="3" :paginationEnabled="false">
           <slide class="slide" v-for="index in 5" :key="index">
             <img :src="getImages" :alt="car.name" />
           </slide>
         </carousel>
       </div>
-      <div class="card__thumbnail d-none d-md-block">
+      <div v-else class="card__thumbnail">
         <img class="card__thumbnail-img" :src="getImages" :alt="car.name" />
         <div class="card__thumbnail-overlay">
           <div>
@@ -127,6 +127,7 @@ export default {
         peugeot,
         renault,
       },
+      isMobile: true,
     };
   },
   props: {
@@ -149,6 +150,21 @@ export default {
         return this.images[this.car.make.toLowerCase()];
       }
       return Object.entries(this.images)[Math.floor(Math.random() * 3)][1];
+    },
+  },
+  created() {
+    this.checkDeviceSize();
+    window.addEventListener("resize", this.checkDeviceSize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkDeviceSize);
+  },
+  methods: {
+    checkDeviceSize() {
+      console.log(this.isMobile);
+      window.matchMedia("(min-width: 768px)").matches
+        ? (this.isMobile = false)
+        : (this.isMobile = true);
     },
   },
 };
